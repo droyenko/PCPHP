@@ -1,24 +1,17 @@
 <?php
 
-class GroupController
+class GroupController extends CController
 {
     public function actionCreateGroup()
     {
+        $newGroup = new GroupForm();
 
-        $groupName = $_POST['groupName'];
-        $direction = $_POST['direction'];
-        $location = $_POST['location'];
-        $teachers = $_POST['teachers'];
-        $budgetOwner = $_POST['budgetOwner'];
-        $startDate = $_POST['startDate'];
-        $finishDate = $_POST('finishDate');
-        $expert = $_POST['expert'];
-
-        $newGroup = new Group($groupName, $direction, $location, $teachers, $budgetOwner, $startDate,
-                $finishDate, $expert);
+        if (isset($_POST['CreateForm'])) {
+            $newGroup->attributes = $_POST['CreateForm'];
+        }
 
         if ($newGroup->validate()) {
-            $attributesGroup = $newGroup->getAttributesGroup();
+            $attributesGroup = $newGroup->getAttributes();
 
             Yii::app()->db->createCommand()
                 ->insert('db_groups',
@@ -32,6 +25,8 @@ class GroupController
                         'finishDate'=>$attributesGroup['finishDate'],
                         'expert'=>$attributesGroup['expert']
                     ])->execute();
+        } else {
+            throw new CHttpException(404,'error in request');
         }
     }
 
@@ -44,33 +39,34 @@ class GroupController
 
     public function actionGiveTeachersToSelect()
     {
-        $treachers = Yii::app()->db->createCommand()
+        $teachers = Yii::app()->db->createCommand()
             ->select('name')
-            ->from('teachers_list')
+            ->from('db_teachers')
             ->queryAll();
-        
-       // $this->_sendResponse(200, CJSON::encode($teachers));
+
+        header('Content-type" application/json');
+        echo CJSON::encode($teachers);
     }
-    
+
     public function actionGiveLocationsToSelect()
     {
         $locations = Yii::app()->db->createCommand()
             ->select('name')
-            ->from('locations_list')
+            ->from('db_locations')
             ->queryAll();
-        
-      //  $this->_sendResponse(200, CJSON::encode($locations));
+
+        header('Content-type" application/json');
+        echo CJSON::encode($locations);
     }
 
     public function actionGiveDirectionsToSelect()
     {
         $directions = Yii::app()->db->createCommand()
             ->select('name')
-            ->from('directions_list')
+            ->from('db_directions')
             ->queryAll();
 
-       // $this->_sendResponse(200, CJSON::encode($locations));
+        header('Content-type" application/json');
+        echo CJSON::encode($directions);
     }
-
 }
-
