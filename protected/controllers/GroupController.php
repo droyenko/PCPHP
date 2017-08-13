@@ -9,27 +9,26 @@ class GroupController extends AbstactController
         if (isset($_POST['CreateForm'])) {
             $newGroup->attributes = Yii::app()->request->getPost('CreateForm');
 
-            if ($newGroup->validate()) {
-                $attributesGroup = $newGroup->getAttributes();
-
-                Yii::app()->db->createCommand()
-                    ->insert('db_groups',
-                        [
-                            'name'=>$attributesGroup['groupName'],
-                            'direction'=>$attributesGroup['direction'],
-                            'location'=>$attributesGroup['location'],
-                            'teachers'=>$attributesGroup['teachers'],
-                            'budgetOwner'=>$attributesGroup['budgetOwner'],
-                            'startDate'=>$attributesGroup['startDate'],
-                            'finishDate'=>$attributesGroup['finishDate'],
-                            'expert'=>$attributesGroup['expert']
-                        ])->execute();
-
-                echo true;
-                return;
+            if (!$newGroup->validate()) {
+                throw new CHttpException(404,'error in request');
             }
 
-            throw new CHttpException(404,'error in request');
+            $attributesGroup = $newGroup->getAttributes();
+
+            Yii::app()->db->createCommand()
+                ->insert('db_groups',
+                    [
+                        'name'=>$attributesGroup['groupName'],
+                        'direction'=>$attributesGroup['direction'],
+                        'location'=>$attributesGroup['location'],
+                        'teachers'=>$attributesGroup['teachers'],
+                        'budgetOwner'=>$attributesGroup['budgetOwner'],
+                        'startDate'=>$attributesGroup['startDate'],
+                        'finishDate'=>$attributesGroup['finishDate'],
+                        'expert'=>$attributesGroup['expert']
+                    ])->execute();
+
+            echo true;
         }
     }
 
