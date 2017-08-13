@@ -35,7 +35,7 @@ class GroupController extends AbstactController
     public function actionDeleteGroup()
     {
         Yii::app()->db->createCommand()
-            ->delete('db_groups', 'id=:id', [':id'=>$_GET['id']])
+            ->delete('db_groups', 'id=:id', [':id'=>Yii::app()->request->getParam('id')])
             ->execute();
 
         echo true;
