@@ -7,7 +7,7 @@ class GroupController extends AbstactController
         $newGroup = new GroupForm();
 
         if (isset($_POST['CreateForm'])) {
-            $newGroup->attributes = $_POST['CreateForm'];
+            $newGroup->attributes = Yii::app()->request->getPost('CreateForm');
 
             if ($newGroup->validate()) {
                 $attributesGroup = $newGroup->getAttributes();
@@ -25,6 +25,7 @@ class GroupController extends AbstactController
                             'expert'=>$attributesGroup['expert']
                         ])->execute();
 
+                echo true;
                 return;
             }
 
@@ -37,6 +38,8 @@ class GroupController extends AbstactController
         Yii::app()->db->createCommand()
             ->delete('db_groups', 'id=:id', [':id'=>$_GET['id']])
             ->execute();
+
+        echo true;
     }
 
     public function actionGiveTeachersToSelect()
