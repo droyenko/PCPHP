@@ -1,6 +1,6 @@
 <?php
 
-class GroupController extends CController
+class GroupController extends AbstactController
 {
     public function actionCreateGroup()
     {
@@ -8,24 +8,26 @@ class GroupController extends CController
 
         if (isset($_POST['CreateForm'])) {
             $newGroup->attributes = $_POST['CreateForm'];
-        }
 
-        if ($newGroup->validate()) {
-            $attributesGroup = $newGroup->getAttributes();
+            if ($newGroup->validate()) {
+                $attributesGroup = $newGroup->getAttributes();
 
-            Yii::app()->db->createCommand()
-                ->insert('db_groups',
-                    [
-                        'name'=>$attributesGroup['groupName'],
-                        'direction'=>$attributesGroup['direction'],
-                        'location'=>$attributesGroup['location'],
-                        'teachers'=>$attributesGroup['teachers'],
-                        'budgetOwner'=>$attributesGroup['budgetOwner'],
-                        'startDate'=>$attributesGroup['startDate'],
-                        'finishDate'=>$attributesGroup['finishDate'],
-                        'expert'=>$attributesGroup['expert']
-                    ])->execute();
-        } else {
+                Yii::app()->db->createCommand()
+                    ->insert('db_groups',
+                        [
+                            'name'=>$attributesGroup['groupName'],
+                            'direction'=>$attributesGroup['direction'],
+                            'location'=>$attributesGroup['location'],
+                            'teachers'=>$attributesGroup['teachers'],
+                            'budgetOwner'=>$attributesGroup['budgetOwner'],
+                            'startDate'=>$attributesGroup['startDate'],
+                            'finishDate'=>$attributesGroup['finishDate'],
+                            'expert'=>$attributesGroup['expert']
+                        ])->execute();
+
+                return;
+            }
+
             throw new CHttpException(404,'error in request');
         }
     }
@@ -44,8 +46,7 @@ class GroupController extends CController
             ->from('db_teachers')
             ->queryAll();
 
-        header('Content-type" application/json');
-        echo CJSON::encode($teachers);
+        $this->renderJSON($teachers);
     }
 
     public function actionGiveLocationsToSelect()
@@ -55,8 +56,7 @@ class GroupController extends CController
             ->from('db_locations')
             ->queryAll();
 
-        header('Content-type" application/json');
-        echo CJSON::encode($locations);
+        $this->renderJSON($locations);
     }
 
     public function actionGiveDirectionsToSelect()
@@ -66,7 +66,6 @@ class GroupController extends CController
             ->from('db_directions')
             ->queryAll();
 
-        header('Content-type" application/json');
-        echo CJSON::encode($directions);
+        $this->renderJSON($directions);
     }
 }
