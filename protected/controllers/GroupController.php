@@ -5,9 +5,10 @@ class GroupController extends AbstactController
     public function actionCreateGroup()
     {
         $newGroup = new GroupForm();
+        $createGroupPost = Yii::app()->request->getPost('CreateForm');
 
-        if (isset($_POST['CreateForm'])) {
-            $newGroup->attributes = Yii::app()->request->getPost('CreateForm');
+        if (isset($createGroupPost)) {
+            $newGroup->attributes = $createGroupPost;
 
             if (!$newGroup->validate()) {
                 throw new CHttpException(404,'error in request');
