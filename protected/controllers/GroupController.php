@@ -5,7 +5,7 @@ class GroupController extends BaseController
     public function actionCreateGroup()
     {
         $newGroup = new GroupForm();
-        $newGroup->attributes = Yii::app()->request->getPost('CreateForm');
+        $newGroup->attributes = Yii::app()->request->getPost('CreateForm', []);
 
         if (!$newGroup->validate()) {
             throw new CHttpException(400,'error in request');
