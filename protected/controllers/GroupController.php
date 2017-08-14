@@ -5,10 +5,9 @@ class GroupController extends AbstactController
     public function actionCreateGroup()
     {
         $newGroup = new GroupForm();
-        $createGroupPost = Yii::app()->request->getPost('CreateForm');
 
-        if (isset($createGroupPost)) {
-            $newGroup->attributes = $createGroupPost;
+        if (isset($_POST['CreateForm'])) {
+            $newGroup->attributes = Yii::app()->request->getPost('CreateForm');
 
             if (!$newGroup->validate()) {
                 throw new CHttpException(404,'error in request');
@@ -35,10 +34,8 @@ class GroupController extends AbstactController
 
     public function actionDeleteGroup()
     {
-        $id = Yii::app()->request->getParam('id');
-
         Yii::app()->db->createCommand()
-            ->delete('db_groups', 'id=:id', [':id'=>$id])
+            ->delete('db_groups', 'id=:id', [':id'=>Yii::app()->request->getParam('id')])
             ->execute();
 
         echo true;
