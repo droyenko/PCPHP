@@ -2,7 +2,7 @@ vendor/
 node_modules/
 dist/
 
-.idea/
+.idea
 
 ### Yii template
 assets/*
