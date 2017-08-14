@@ -1,6 +1,6 @@
 <?php
 
-class AbstactController extends CController
+abstract class BaseController extends CController
 {
     public function renderJSON($data)
     {

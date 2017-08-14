@@ -1,6 +1,6 @@
 <?php
 
-class GroupController extends AbstactController
+class GroupController extends BaseController
 {
     public function actionCreateGroup()
     {
