@@ -26,9 +26,9 @@ class GroupController extends BaseController
                     'direction'=>$attributesGroup['direction'],
                     'location'=>$attributesGroup['location'],
                     'teachers'=>$attributesGroup['teachers'],
-                    'budgetOwner'=>$attributesGroup['budgetOwner'],
-                    'startDate'=>$attributesGroup['startDate'],
-                    'finishDate'=>$attributesGroup['finishDate'],
+                    'budget_owner'=>$attributesGroup['budgetOwner'],
+                    'date_start'=>$attributesGroup['startDate'],
+                    'date_finish'=>$attributesGroup['finishDate'],
                     'expert'=>$attributesGroup['expert']
                 ])->execute();
 
@@ -38,7 +38,7 @@ class GroupController extends BaseController
     public function actionDeleteGroup()
     {
         Yii::app()->db->createCommand()
-            ->delete('db_groups', 'id=:id', [':id'=>Yii::app()->request->getParam('id')])
+            ->delete('tbl_group', 'id_group=:id', [':id'=>Yii::app()->request->getParam('id')])
             ->execute();
 
         $this->renderJSON(["success" => true]);
@@ -48,7 +48,7 @@ class GroupController extends BaseController
     {
         $teachers = Yii::app()->db->createCommand()
             ->select('name')
-            ->from('db_teachers')
+            ->from('tbl_user')
             ->queryAll();
 
         $this->renderJSON($teachers);
@@ -58,7 +58,7 @@ class GroupController extends BaseController
     {
         $locations = Yii::app()->db->createCommand()
             ->select('name')
-            ->from('db_locations')
+            ->from('tbl_location')
             ->queryAll();
 
         $this->renderJSON($locations);
@@ -68,7 +68,7 @@ class GroupController extends BaseController
     {
         $directions = Yii::app()->db->createCommand()
             ->select('name')
-            ->from('db_directions')
+            ->from('tbl_direction')
             ->queryAll();
 
         $this->renderJSON($directions);
