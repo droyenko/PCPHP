@@ -7,6 +7,8 @@ engines:
     checks:
       PSR1 Classes ClassDeclaration MissingNamespace:
         enabled: false
+      Naming/ShortVariable:
+        enabled: false
   phpmd:
     enabled: true
     config:
