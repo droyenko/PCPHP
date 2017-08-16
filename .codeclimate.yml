@@ -7,13 +7,14 @@ engines:
     checks:
       PSR1 Classes ClassDeclaration MissingNamespace:
         enabled: false
-      Naming/ShortVariable:
-        enabled: false
   phpmd:
     enabled: true
     config:
       file_extensions: "php"
       rulesets: "unusedcode,codesize,naming"
+    checks:
+      Naming/ShortVariable:
+        enabled: false
   eslint:
     enabled: true
 
