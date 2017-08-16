@@ -16,6 +16,7 @@ return [
     'import' => [
         'application.models.*',
         'application.components.*',
+        'application.controllers.*',
     ],
 
     'modules' => [
@@ -32,6 +33,15 @@ return [
 
     // application components
     'components' => [
+        'urlManager' => [
+            'showScriptName' => false,
+            'urlFormat' => 'path',
+            'rules' => [
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ],
+        ],
 
         'user' => [
             // enable cookie-based authentication
