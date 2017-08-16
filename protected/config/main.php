@@ -43,6 +43,7 @@ return [
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
         ],
+
         'user' => [
             // enable cookie-based authentication
             'allowAutoLogin' => true,
