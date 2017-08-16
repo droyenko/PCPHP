@@ -2,7 +2,7 @@
 
 class GroupController extends BaseController
 {
-    public function actionCreateGroup()
+    public function actionCreate()
     {
         $createFormAttributes = Yii::app()->request->getPost('CreateForm', []);
 
@@ -38,7 +38,7 @@ class GroupController extends BaseController
         $this->renderJson(["success" => true]);
     }
 
-    public function actionDeleteGroup()
+    public function actionDelete()
     {
         Yii::app()->db->createCommand()
             ->delete('tbl_group', 'id_group=:id', [':id' => Yii::app()->request->getParam('id')])
@@ -47,48 +47,56 @@ class GroupController extends BaseController
         $this->renderJson(["success" => true]);
     }
 
-    public function actionGiveTeachersToSelect()
+    public function actionGetTeachersList()
     {
         $teachers = Yii::app()->db->createCommand()
             ->select('name')
             ->from('tbl_user')
             ->queryAll();
 
+        $teachers = empty($teachers) ? [] : $teachers;
+
         $this->renderJson($teachers);
     }
 
-    public function actionGiveLocationsToSelect()
+    public function actionGetLocationsList()
     {
         $locations = Yii::app()->db->createCommand()
             ->select('name')
             ->from('tbl_location')
             ->queryAll();
 
+        $locations = empty($locations) ? [] : $locations;
+
         $this->renderJson($locations);
     }
 
-    public function actionGiveDirectionsToSelect()
+    public function actionGetDirectionsList()
     {
         $directions = Yii::app()->db->createCommand()
             ->select('name')
             ->from('tbl_direction')
             ->queryAll();
 
+        $directions = empty($directions) ? [] : $directions;
+
         $this->renderJson($directions);
     }
 
-    public function actionGiveGroupData()
+    public function actionGetGroupsList()
     {
-        $locations = Yii::app()->db->createCommand()
+        $groups = Yii::app()->db->createCommand()
             ->select('*')
             ->from('tbl_group')
             ->where('id_group=:id', [':id' => Yii::app()->request->getParam('id')])
             ->queryAll();
 
-        $this->renderJson($locations);
+        $groups = empty($groups) ? [] : $groups;
+
+        $this->renderJson($groups);
     }
 
-    public function actionEditGroup()
+    public function actionEdit()
     {
         $editFormAttributes = Yii::app()->request->getPost('EditForm', []);
 
