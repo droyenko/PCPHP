@@ -2,28 +2,28 @@
 
 // This is the configuration for yiic console application.
 // Any writable CConsoleApplication properties can be configured here.
-return [
-    'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-    'name' => 'My Console Application',
+return array(
+	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+	'name'=>'My Console Application',
 
-    // preloading 'log' component
-    'preload' => ['log'],
+	// preloading 'log' component
+	'preload'=>array('log'),
 
-    // application components
-    'components' => [
+	// application components
+	'components'=>array(
 
-        // database settings are configured in database.php
-        'db' => require(dirname(__FILE__) . '/database.php'),
+		// database settings are configured in database.php
+		'db'=>require(dirname(__FILE__).'/database.php'),
 
-        'log' => [
-            'class' => 'CLogRouter',
-            'routes' => [
-                [
-                    'class' => 'CFileLogRoute',
-                    'levels' => 'error, warning',
-                ],
-            ],
-        ],
+		'log'=>array(
+			'class'=>'CLogRouter',
+			'routes'=>array(
+				array(
+					'class'=>'CFileLogRoute',
+					'levels'=>'error, warning',
+				),
+			),
+		),
 
-    ],
-];
+	),
+);
