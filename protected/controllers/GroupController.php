@@ -14,7 +14,7 @@ class GroupController extends BaseController
         $newGroup->attributes = $createFormAttributes;
 
         if (!$newGroup->validate()) {
-            throw new CHttpException(400,'error in request');
+            throw new CHttpException(400, 'error in request');
         }
 
         $attributesGroup = $newGroup->getAttributes();
@@ -31,7 +31,8 @@ class GroupController extends BaseController
                     'date_start' => $attributesGroup['startDate'],
                     'date_finish' => $attributesGroup['finishDate'],
                     'expert' => $attributesGroup['expert']
-                ])
+                ]
+            )
             ->execute();
 
         $this->renderJson(["success" => true]);
@@ -119,7 +120,8 @@ class GroupController extends BaseController
                     'date_start' => $attributesGroup['startDate'],
                     'date_finish' => $attributesGroup['finishDate'],
                     'expert' => $attributesGroup['expert']
-                ])
+                ]
+            )
             ->execute();
 
         $this->renderJson(["success" => true]);
