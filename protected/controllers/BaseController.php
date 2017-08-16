@@ -9,4 +9,3 @@ abstract class BaseController extends CController
         Yii::app()->end();
     }
 }
-

@@ -20,7 +20,8 @@ class GroupController extends BaseController
         $attributesGroup = $newGroup->getAttributes();
 
         Yii::app()->db->createCommand()
-            ->insert('tbl_group',
+            ->insert(
+                'tbl_group',
                 [
                     'name' => $attributesGroup['groupName'],
                     'direction' => $attributesGroup['direction'],
@@ -30,7 +31,8 @@ class GroupController extends BaseController
                     'date_start' => $attributesGroup['startDate'],
                     'date_finish' => $attributesGroup['finishDate'],
                     'expert' => $attributesGroup['expert']
-                ])->execute();
+                ])
+            ->execute();
 
         $this->renderJson(["success" => true]);
     }
@@ -98,14 +100,15 @@ class GroupController extends BaseController
         $editedGroup->attributes = $editFormAttributes;
 
         if (!$editedGroup->validate()) {
-            throw new CHttpException(400,'error in request');
+            throw new CHttpException(400, 'error in request');
         }
 
         $attributesGroup = $editedGroup->getAttributes();
         $editedGroup->id = Yii::app()->request->getPost('id');
 
         Yii::app()->db->createCommand()
-            ->update('tbl_group',
+            ->update(
+                'tbl_group',
                 [
                     'id_group' => $attributesGroup['id'],
                     'name' => $attributesGroup['groupName'],
@@ -116,7 +119,8 @@ class GroupController extends BaseController
                     'date_start' => $attributesGroup['startDate'],
                     'date_finish' => $attributesGroup['finishDate'],
                     'expert' => $attributesGroup['expert']
-                ])->execute();
+                ])
+            ->execute();
 
         $this->renderJson(["success" => true]);
     }
