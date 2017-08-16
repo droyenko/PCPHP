@@ -1,10 +1,10 @@
 <?php
 
-class LocationsController extends BaseController
+class ScheduleController extends BaseController
 {
-    public function actionGetLocations()
+    public function actionGetSchedule()
     {
-        $locations = Locations::model()->getLocations();
-        $this->renderJSON($locations);
+        $schedule = Schedule::model()->getSchedule();
+        $this->renderJSON($schedule);
     }
 }

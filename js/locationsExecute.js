@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', main);
 
 function main() {
-    let locationBtn = document.querySelector('#locationBtn');
+    let locationBtn = document.querySelector('#locationBtn'),
+        locationModal = document.querySelector('#locationModal'),
+        locationsListModal = null;
     locationBtn.addEventListener('click', () => {
-         let locationsListModal = new LocationsList();
+        locationsListModal = (locationsListModal === null)
+            ? new LocationsList(locationModal)
+            : locationsListModal;
     });
 }

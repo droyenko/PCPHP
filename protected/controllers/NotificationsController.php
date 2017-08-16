@@ -1,10 +1,10 @@
 <?php
 
-class LocationsController extends BaseController
+class NotificationsController extends BaseController
 {
-    public function actionGetLocations()
+    public function actionGetNotifications()
     {
-        $locations = Locations::model()->getLocations();
-        $this->renderJSON($locations);
+        $notifications = Notifications::model()->getNotifications();
+        $this->renderJSON($notifications);
     }
 }

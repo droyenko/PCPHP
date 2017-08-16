@@ -1,10 +1,10 @@
 <?php
 
-class LocationsController extends BaseController
+class StudentListController extends BaseController
 {
-    public function actionGetLocations()
+    public function actionGetStudentList()
     {
-        $locations = Locations::model()->getLocations();
-        $this->renderJSON($locations);
+        $students = StudentList::model()->getStudentList();
+        $this->renderJSON($students);
     }
 }

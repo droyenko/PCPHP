@@ -1,6 +1,6 @@
-StudentList.php<?php
+<?php
 
-class Locations extends CActiveRecord
+class Notifications extends CActiveRecord
 {
     public static function model($className = __CLASS__)
     {
@@ -9,15 +9,15 @@ class Locations extends CActiveRecord
 
     public function tableName()
     {
-        return 'locations';
+        return 'notifications';
     }
 
-    public function getLocations()
+    public function getNotifications()
     {
         $criteria = new CDbCriteria();
-        $criteria->select = 'name';
-        $locations = Locations::model()->findAll($criteria);
+        $criteria->select = 'notification_text';
+        $notifications = Notifications::model()->findAll($criteria);
 
-        return $locations;
+        return $notifications;
     }
 }

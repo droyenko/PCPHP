@@ -1,6 +1,6 @@
 <?php
 
-class Notifications extends CActiveRecord
+class GroupInfo extends CActiveRecord
 {
     public static function model($className = __CLASS__)
     {
@@ -9,15 +9,15 @@ class Notifications extends CActiveRecord
 
     public function tableName()
     {
-        return 'locations';
+        return 'group';
     }
 
-    public function getLocations()
+    public function getGroupInfo()
     {
         $criteria = new CDbCriteria();
-        $criteria->select = 'name';
-        $locations = Locations::model()->findAll($criteria);
+        $criteria->select = 'name, date_start, date_end, direction';
+        $groupInfo = GroupInfo::model()->findAll($criteria);
 
-        return $locations;
+        return $groupInfo;
     }
 }

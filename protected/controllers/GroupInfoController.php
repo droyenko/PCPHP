@@ -1,10 +1,10 @@
 <?php
 
-class LocationsController extends BaseController
+class GroupInfoController extends BaseController
 {
-    public function actionGetLocations()
+    public function actionGetGroupInfo()
     {
-        $locations = Locations::model()->getLocations();
-        $this->renderJSON($locations);
+        $groupInfo = GroupInfo::model()->getGroupInfo();
+        $this->renderJSON($groupInfo);
     }
 }
