@@ -2,6 +2,8 @@
 
 class GroupForm extends CFormModel
 {
+    public $id;
+
     public $groupName;
     public $direction;
     public $location;
@@ -14,6 +16,7 @@ class GroupForm extends CFormModel
     public function rules()
     {
         return [
+            ['id', 'unsafe', 'on' => 'edit'],
             ['groupName', 'type', 'type' => 'string', 'allowEmpty' => false, 'length', 'min' => 3, 'max' => 30],
             ['$direction', 'allowEmpty' => false, 'required'],
             ['$direction', 'allowEmpty' => false, 'required'],
