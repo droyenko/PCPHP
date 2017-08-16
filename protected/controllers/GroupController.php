@@ -32,7 +32,7 @@ class GroupController extends BaseController
                     'expert' => $attributesGroup['expert']
                 ])->execute();
 
-        $this->renderJSON(["success" => true]);
+        $this->renderJson(["success" => true]);
     }
 
     public function actionDeleteGroup()
@@ -41,7 +41,7 @@ class GroupController extends BaseController
             ->delete('tbl_group', 'id_group=:id', [':id' => Yii::app()->request->getParam('id')])
             ->execute();
 
-        $this->renderJSON(["success" => true]);
+        $this->renderJson(["success" => true]);
     }
 
     public function actionGiveTeachersToSelect()
@@ -51,7 +51,7 @@ class GroupController extends BaseController
             ->from('tbl_user')
             ->queryAll();
 
-        $this->renderJSON($teachers);
+        $this->renderJson($teachers);
     }
 
     public function actionGiveLocationsToSelect()
@@ -61,7 +61,7 @@ class GroupController extends BaseController
             ->from('tbl_location')
             ->queryAll();
 
-        $this->renderJSON($locations);
+        $this->renderJson($locations);
     }
 
     public function actionGiveDirectionsToSelect()
@@ -71,7 +71,7 @@ class GroupController extends BaseController
             ->from('tbl_direction')
             ->queryAll();
 
-        $this->renderJSON($directions);
+        $this->renderJson($directions);
     }
 
     public function actionGiveGroupData()
@@ -82,7 +82,7 @@ class GroupController extends BaseController
             ->where('id_group=:id', [':id' => Yii::app()->request->getParam('id')])
             ->queryAll();
 
-        $this->renderJSON($locations);
+        $this->renderJson($locations);
     }
 
     public function actionEditGroup()
@@ -118,6 +118,6 @@ class GroupController extends BaseController
                     'expert' => $attributesGroup['expert']
                 ])->execute();
 
-        $this->renderJSON(["success" => true]);
+        $this->renderJson(["success" => true]);
     }
 }
