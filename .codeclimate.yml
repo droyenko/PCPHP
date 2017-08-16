@@ -4,6 +4,14 @@ engines:
     config:
       standard: "PSR1,PSR2"
       ignore_warnings: true
+    checks:
+      PSR1 Classes ClassDeclaration MissingNamespace:
+        enabled: false
+  phpmd:
+    enabled: true
+    config:
+      file_extensions: "php"
+      rulesets: "unusedcode,codesize,naming"
   eslint:
     enabled: true
 
