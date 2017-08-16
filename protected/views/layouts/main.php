@@ -47,7 +47,7 @@
             ]
         ); ?>
     </div><!-- mainmenu -->
-    <?php if (isset($this->breadcrumbs)): ?>
+    <?php if (isset($this->breadcrumbs)) : ?>
         <?php $this->widget(
             'zii.widgets.CBreadcrumbs',
             [
