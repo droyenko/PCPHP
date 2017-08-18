@@ -12,9 +12,6 @@ class LocationsList {
         let locations = this.getLocations(),
             locQuantity = locations.length;
 
-        // this.clearLocationList();
-
-
         for (let i = 0; i < locQuantity; i++) {
             this.createLocation(locations[i]['FULL_NAME']);
         }
@@ -67,7 +64,6 @@ class LocationsList {
             });
             locations[i].addEventListener('dblclick', () => {
                 this.selectedLocations = [locations[i].innerHTML];
-                // this.sendSelectedGroups();
                 this.locationModal.querySelector('#confirm').click();
 
             });
