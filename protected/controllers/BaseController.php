@@ -2,10 +2,10 @@
 
 abstract class BaseController extends CController
 {
-    protected function renderJSON($data)
+    protected function renderJson(array $data)
     {
         header('Content-type: application/json');
         echo CJSON::encode($data);
-        Yii::app()->Application->end();
+        Yii::app()->end();
     }
 }
