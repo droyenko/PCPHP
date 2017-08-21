@@ -8,4 +8,3 @@ class LocationsController extends BaseController
         $this->renderJSON($locations);
     }
 }
-

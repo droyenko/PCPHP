@@ -1,5 +1,3 @@
-document.addEventListener('DOMContentLoaded', main);
-
 function main() {
     let locationBtn = document.querySelector('#locationBtn'),
         locationModal = document.querySelector('#locationModal'),
@@ -10,3 +8,5 @@ function main() {
             : locationsListModal;
     });
 }
+
+document.addEventListener('DOMContentLoaded', main);

@@ -11,19 +11,19 @@ class GroupWindow {
 
     attachEvents() {
         this.btnInfo.addEventListener('click', () => {
-            Frame.ajaxRequest('GET', 'getGroupInfo')
+            Frame.ajaxRequest('GET', 'getGroupInfo');
         });
 
         this.btnStudents.addEventListener('click', () => {
-            Frame.ajaxRequest('GET', 'getStudentList')
+            Frame.ajaxRequest('GET', 'getStudentList');
         });
 
         this.btnSchedule.addEventListener('click', () => {
-            Frame.ajaxRequest('GET', 'getSchedule')
+            Frame.ajaxRequest('GET', 'getSchedule');
         });
 
         this.btnNotifications.addEventListener('click', () => {
-            Frame.ajaxRequest('GET', 'getNotifications')
+            Frame.ajaxRequest('GET', 'getNotifications');
         });
     }
 
