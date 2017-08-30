@@ -57,7 +57,7 @@ class EditGroup {
 
     attachEvents () {
         if (this.editGroupBtn !== null){
-            this.editGroupBtn.addEventListener('click', () =>{
+            this.editGroupBtn.addEventListener('click', () => {
                 this.fillFields();
             });
         }

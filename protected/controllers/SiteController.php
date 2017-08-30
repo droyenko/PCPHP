@@ -8,8 +8,9 @@ class SiteController extends Controller
         if (isset($_POST['LoginForm'])) {
             $model->attributes = $_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
-            if ($model->validate() && $model->login())
+            if ($model->validate() && $model->login()) {
                 $this->redirect(Yii::app()->request->baseUrl . "/site/main");
+            }
         }
         $this->layout = "login_layout_caesar";
         $this->render('login_page_caesar', array('model' => $model));
@@ -42,3 +43,4 @@ class SiteController extends Controller
         }
     }
 }
+

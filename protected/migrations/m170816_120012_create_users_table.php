@@ -1,9 +1,9 @@
-св<?php
+<?php
 
 class m170816_120012_create_users_table extends CDbMigration
 {
-	public function up()
-	{
+    public function up()
+    {
         $this->execute('
             CREATE TABLE IF NOT EXISTS `users` (
             `id` INT NOT NULL AUTO_INCREMENT,
@@ -17,21 +17,21 @@ class m170816_120012_create_users_table extends CDbMigration
             PRIMARY KEY (`id`),
             UNIQUE `username` (`username`)) ENGINE = InnoDB DEFAULT CHARSET=utf8;
         ');
-	}
+    }
 
-	public function down()
-	{
-		$this->dropTable('users');
-	}
+    public function down()
+    {
+        $this->dropTable('users');
+    }
 
-	/*
-	// Use safeUp/safeDown to do migration with transaction
-	public function safeUp()
-	{
-	}
+    /*
+    // Use safeUp/safeDown to do migration with transaction
+    public function safeUp()
+    {
+    }
 
-	public function safeDown()
-	{
-	}
-	*/
+    public function safeDown()
+    {
+    }
+    */
 }

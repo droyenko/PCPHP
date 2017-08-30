@@ -16,12 +16,14 @@
     <aside class="notif box"></aside>
     <main class="group-area box">
         <div class="gear">
-            <?php if (Yii::app()->user->type === 'itacademy'): ?>
+            <?php if (Yii::app()->user->type === 'itacademy') : ?>
                 <a href="#" data-toggle="modal" data-target="#edit-group-modal">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/gear.png" class="gear-img" alt="gear icon">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/gear.png" class="gear-img"
+                         alt="gear icon">
                 </a>
                 <a href="#" class="delete-group">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/trash.jpg" class="trash-img" alt="trash bin icon">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/trash.jpg" class="trash-img"
+                         alt="trash bin icon">
                 </a>
             <?php endif; ?>
         </div>
@@ -63,7 +65,7 @@
     </div>
 
     <div class="leftside-bar">
-        <?php if (Yii::app()->user->type === 'itacademy'): ?>
+        <?php if (Yii::app()->user->type === 'itacademy') : ?>
             <a data-toggle="modal" href="#locationModal">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/globe.png" class="globe-img"
                      alt="globe icon">

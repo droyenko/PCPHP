@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This is the model class for table "users".
  *
@@ -25,6 +26,7 @@ class User extends CActiveRecord
     {
         return 'users';
     }
+
     /**
      * @return array validation rules for model attributes.
      */
@@ -34,13 +36,14 @@ class User extends CActiveRecord
         // will receive user inputs.
         return array(
             array('username, password, location', 'required'),
-            array('location', 'numerical', 'integerOnly'=>true),
-            array('firstname, lastname, username, password, type', 'length', 'max'=>45),
+            array('location', 'numerical', 'integerOnly' => true),
+            array('firstname, lastname, username, password, type', 'length', 'max' => 45),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, firstname, lastname, username, password, location, type', 'safe', 'on'=>'search'),
+            array('id, firstname, lastname, username, password, location, type', 'safe', 'on' => 'search'),
         );
     }
+
     /**
      * @return array relational rules.
      */
@@ -54,6 +57,7 @@ class User extends CActiveRecord
             'location0' => array(self::BELONGS_TO, 'Locations', 'location'),
         );
     }
+
     /**
      * @return array customized attribute labels (name=>label)
      */
@@ -69,6 +73,7 @@ class User extends CActiveRecord
             'type' => 'type',
         );
     }
+
     /**
      * Retrieves a list of models based on the current search/filter conditions.
      *
@@ -84,25 +89,26 @@ class User extends CActiveRecord
     public function search()
     {
         // @todo Please modify the following code to remove attributes that should not be searched.
-        $criteria=new CDbCriteria;
-        $criteria->compare('id',$this->id);
-        $criteria->compare('first_name',$this->firstname,true);
-        $criteria->compare('last_name',$this->lastname,true);
-        $criteria->compare('username',$this->username,true);
-        $criteria->compare('password',$this->password,true);
-        $criteria->compare('location',$this->location);
-        $criteria->compare('type',$this->type,true);
+        $criteria = new CDbCriteria;
+        $criteria->compare('id', $this->id);
+        $criteria->compare('first_name', $this->firstname, true);
+        $criteria->compare('last_name', $this->lastname, true);
+        $criteria->compare('username', $this->username, true);
+        $criteria->compare('password', $this->password, true);
+        $criteria->compare('location', $this->location);
+        $criteria->compare('type', $this->type, true);
         return new CActiveDataProvider($this, array(
-            'criteria'=>$criteria,
+            'criteria' => $criteria,
         ));
     }
+
     /**
      * Returns the static model of the specified AR class.
      * Please note that you should have this exact method in all your CActiveRecord descendants!
      * @param string $className active record class name.
      * @return User the static model class
      */
-    public static function model($className=__CLASS__)
+    public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }

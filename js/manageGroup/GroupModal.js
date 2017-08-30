@@ -23,7 +23,7 @@ class GroupModal {
         this.closeModal = elements.querySelector('.close-modal');
         this.messageBox = elements.querySelector('.errorName');
         this.teachersLists = elements.querySelectorAll('.teachers');
-        this.expertsInputs = document.querySelectorAll('.experts')
+        this.expertsInputs = document.querySelectorAll('.experts');
     }
 
     attachEvents () {

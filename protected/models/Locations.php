@@ -16,4 +16,3 @@ class Locations extends CActiveRecord
         return 'locations';
     }
 }
-

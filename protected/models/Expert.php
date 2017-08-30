@@ -1,11 +1,12 @@
 <?php
+
 class Expert extends CActiveRecord
 {
     public $id;
     public $name;
     public $group;
 
-    public static function model($className=__CLASS__)
+    public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
@@ -14,5 +15,4 @@ class Expert extends CActiveRecord
     {
         return 'group_experts';
     }
-   
 }

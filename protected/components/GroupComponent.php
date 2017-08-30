@@ -75,7 +75,6 @@ class GroupComponent extends CApplicationComponent
     public function getMyList()
     {
         $userId = Yii::app()->user->id;
-        $userGroups = [];
 
         $criteria = new CDbCriteria();
         $criteria->alias = 'user_group';

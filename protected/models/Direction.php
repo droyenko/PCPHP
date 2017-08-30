@@ -15,5 +15,4 @@ class Direction extends CActiveRecord
     {
         return 'directions';
     }
-
 }

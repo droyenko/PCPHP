@@ -8,7 +8,7 @@ class DirectionComponent extends CApplicationComponent
         $model = new Direction();
         $directions = $model->findAll();
         $directions = empty($directions) ? [] : $directions;
-        
+
         return $directions;
     }
 }
