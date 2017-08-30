@@ -15,5 +15,4 @@ class Teacher extends CActiveRecord
     {
         return 'user_groups';
     }
-
 }

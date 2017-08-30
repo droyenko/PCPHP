@@ -133,7 +133,7 @@ class GroupModal {
             selectedTeachersIDs = [];
 
         teachersLists.forEach((teacherList) => {
-            selectedTeachersIDs.push(parseInt(teacherList.options[teacherList.selectedIndex].value));
+            selectedTeachersIDs.push(parseInt(teacherList.options[teacherList.selectedIndex].value), 10);
         });
         data.teachers = selectedTeachersIDs;
 
