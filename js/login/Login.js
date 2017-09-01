@@ -18,21 +18,21 @@ class Login {
     attachEvents() {
         document.addEventListener('keydown', event => {
             if (event.keyCode === 13) {
-            event.preventDefault();
-            this.validateForm();
-        }
-    });
+                event.preventDefault();
+                this.validateForm();
+            }
+        });
 
         document.addEventListener('keydown', event => {
             if (event.keyCode === 27) {
-            this.login.value = "";
-            this.password.value = "";
-        }
-    });
+                this.login.value = "";
+                this.password.value = "";
+            }
+        });
 
         this.submit.addEventListener ('click', event => {
             this.validateForm();
-    });
+        });
     }
 
     validateLogin () {
