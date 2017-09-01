@@ -12,8 +12,8 @@ class SiteController extends Controller
                 $this->redirect(Yii::app()->request->baseUrl . "/site/main");
             }
         }
-        $this->layout = "login_layout_caesar";
-        $this->render('login_page_caesar', array('model' => $model));
+        $this->layout = "login";
+        $this->render('login', array('model' => $model));
     }
 
     public function actionMain()

@@ -58,7 +58,7 @@ class Login {
             this.showError();
             return false;
         } else {
-            if (!this.password.value.match(/^[a-zA-Z0-9!@#$%^&*`~()_+-|\"';:/?.>,<]+$/g)) {
+            if (!this.password.value.match(/^[a-zA-Z0-9!@#$%^&*`~\(\)_+\-|\"';:\/?.>,<]+$/g)) {
                 this.showError();
                 return false;
             } else {
