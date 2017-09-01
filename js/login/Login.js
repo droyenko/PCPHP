@@ -18,25 +18,25 @@ class Login {
     attachEvents() {
         document.addEventListener('keydown', event => {
             if (event.keyCode === 13) {
-                event.preventDefault();
-                this.validateForm();
-            }
-        });
+            event.preventDefault();
+            this.validateForm();
+        }
+    });
 
         document.addEventListener('keydown', event => {
             if (event.keyCode === 27) {
-                this.login.value = "";
-                this.password.value = "";
-            }
-        });
+            this.login.value = "";
+            this.password.value = "";
+        }
+    });
 
         this.submit.addEventListener ('click', event => {
             this.validateForm();
-        });
+    });
     }
 
     validateLogin () {
-        let loginValue = this.login.value;
+        var loginValue = this.login.value;
 
         if (!loginValue.match(/^[a-zA-Z]+$/g)) {
             this.showError();
@@ -52,13 +52,13 @@ class Login {
     }
 
     validatePassword() {
-        let passwordValue = this.password.value;
+        var passwordValue = this.password.value;
 
         if (passwordValue.length < 4 || passwordValue.length > 10) {
             this.showError();
             return false;
         } else {
-            if (!this.password.value.match(/^[a-zA-Z0-9!@#$%^&*`~\(\)_+\-|\"';:\/?.>,<]+$/g)) {
+            if (!this.password.value.match(/^[a-zA-Z0-9!@#$%\^&\*`~\(\)_\+\-|\"';:\/\?\.>,<]+$/g)) {
                 this.showError();
                 return false;
             } else {
@@ -68,8 +68,9 @@ class Login {
     }
 
     validateForm() {
-        let loginValid = this.validateLogin(),
-            passwordValid = this.validatePassword();
+        var loginValid = this.validateLogin();
+        var passwordValid = this.validatePassword();
+
         if (loginValid && passwordValid) {
             this.loginForm.submit();
         }

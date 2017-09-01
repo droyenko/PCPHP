@@ -19,11 +19,10 @@
     <div class="clear"></div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', login);
-        function login() {
-            let loginForm = document.querySelector('.login'),
-                login = new Login(loginForm);
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var loginForm = document.querySelector('.login');
+            var login = new Login(loginForm);
+        });
     </script>
 
 </body>
