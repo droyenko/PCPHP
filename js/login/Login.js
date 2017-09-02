@@ -36,7 +36,7 @@ class Login {
     }
 
     validateLogin () {
-        var loginValue = this.login.value;
+        let loginValue = this.login.value;
 
         if (!loginValue.match(/^[a-zA-Z]+$/g)) {
             this.showError();
@@ -52,7 +52,7 @@ class Login {
     }
 
     validatePassword() {
-        var passwordValue = this.password.value;
+        let passwordValue = this.password.value;
 
         if (passwordValue.length < 4 || passwordValue.length > 10) {
             this.showError();
@@ -68,8 +68,8 @@ class Login {
     }
 
     validateForm() {
-        var loginValid = this.validateLogin();
-        var passwordValid = this.validatePassword();
+        let loginValid = this.validateLogin(),
+            passwordValid = this.validatePassword();
 
         if (loginValid && passwordValid) {
             this.loginForm.submit();
