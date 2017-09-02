@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/css/mainPage/main_page.css">
 
     <script src="<?= Yii::app()->request->baseUrl; ?>/js/login/login.js"></script>
-    <script src="<?= Yii::app()->request->baseUrl; ?>/js/login/login_init.js"></script>
 
     <title><?= CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -18,6 +17,13 @@
     <header class="header box">SoftServe</header>
     <?= $content; ?>
     <div class="clear"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var loginForm = document.querySelector('.login');
+            var login = new Login(loginForm);
+        });
+    </script>
 
 </body>
 </html>
