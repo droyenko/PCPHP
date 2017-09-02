@@ -6,7 +6,8 @@ class m170901_104716_create_feedbacks_table extends CDbMigration
     {
         $tableSchema = Yii::app()->db->schema->getTable('feedbacks');
         if ($tableSchema === null) {
-            $this->createTable('feedbacks',
+            $this->createTable(
+                'feedbacks',
                 [
                     'id' => 'pk',
                     'student_id' => 'integer NOT NULL',
@@ -17,7 +18,8 @@ class m170901_104716_create_feedbacks_table extends CDbMigration
                     'interviewer_score' => 'integer NOT NULL',
                     'interviewer_summery' => 'varchar(250) NOT NULL',
                 ],
-                'ENGINE=InnoDB CHARSET=utf8');
+                'ENGINE=InnoDB CHARSET=utf8'
+            );
             $this->addForeignKey('fk_student_id', 'feedbacks', 'student_id', 'students', 'id', 'CASCADE', 'CASCADE');
         }
     }

@@ -6,12 +6,14 @@ class m170901_082020_create_english_lvl_table extends CDbMigration
     {
         $tableSchema = Yii::app()->db->schema->getTable('english_lvl');
         if ($tableSchema === null) {
-            $this->createTable('english_lvl',
+            $this->createTable(
+                'english_lvl',
                 [
                     'id' => 'pk',
                     'name' => 'varchar(45) NOT NULL',
                 ],
-                'ENGINE=InnoDB CHARSET=utf8');
+                'ENGINE=InnoDB CHARSET=utf8'
+            );
         }
         $this->insertMultiple('english_lvl', [
             ['id' => 1, 'name' => 'elementary'],

@@ -6,7 +6,8 @@ class m170901_083320_create_students_table extends CDbMigration
     {
         $tableSchema = Yii::app()->db->schema->getTable('students');
         if ($tableSchema === null) {
-            $this->createTable('students',
+            $this->createTable(
+                'students',
                 [
                     'id' => 'pk',
                     'first_name' => 'varchar(45) NOT NULL',
@@ -18,7 +19,8 @@ class m170901_083320_create_students_table extends CDbMigration
                     'entry_score' => 'integer NOT NULL',
                     'approved_by' => 'integer NOT NULL',
                 ],
-                'ENGINE=InnoDB CHARSET=utf8');
+                'ENGINE=InnoDB CHARSET=utf8'
+            );
             $this->addForeignKey('fk_english_lvl', 'students', 'english_lvl', 'english_lvl', 'id', 'CASCADE', 'CASCADE');
             $this->addForeignKey('fk_group_id', 'students', 'group_id', 'groups', 'id', 'CASCADE', 'CASCADE');
             $this->addForeignKey('fk_approved_by', 'students', 'approved_by', 'experts', 'id', 'CASCADE', 'CASCADE');
