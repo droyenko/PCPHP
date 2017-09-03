@@ -1,0 +1,40 @@
+.studentListEdit-modal {
+  display: flex;
+  flex-flow: row nowrap;
+
+  .studentListEdit-side {
+    width: 10%;
+    background-color: #00b3ee;
+  }
+
+  .studentListEdit-middle {
+    width: 80%;
+    height: 100%;
+    background-color: #2e6ab1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+
+    .studentListEdit-middle-header, .studentListEdit-middle-footer {
+      display: flex;
+      width: 100%;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
+
+    .studentListEdit-middle-studentList {
+      background-color: antiquewhite;
+      width: 100%;
+
+      table {
+        height: 300px;
+      }
+    }
+
+    .studentListEdit-middle-footer {
+      width: 80px;
+      position: relative;
+      left: -5%;
+    }
+  }
+}

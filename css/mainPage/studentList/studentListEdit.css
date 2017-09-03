@@ -1,0 +1,29 @@
+.studentListEdit-modal {
+  display: flex;
+  flex-flow: row nowrap; }
+  .studentListEdit-modal .studentListEdit-side {
+    width: 10%;
+    background-color: #00b3ee; }
+  .studentListEdit-modal .studentListEdit-middle {
+    width: 80%;
+    height: 100%;
+    background-color: #2e6ab1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end; }
+    .studentListEdit-modal .studentListEdit-middle .studentListEdit-middle-header, .studentListEdit-modal .studentListEdit-middle .studentListEdit-middle-footer {
+      display: flex;
+      width: 100%;
+      flex-flow: row nowrap;
+      justify-content: space-between; }
+    .studentListEdit-modal .studentListEdit-middle .studentListEdit-middle-studentList {
+      background-color: antiquewhite;
+      width: 100%; }
+      .studentListEdit-modal .studentListEdit-middle .studentListEdit-middle-studentList table {
+        height: 300px; }
+    .studentListEdit-modal .studentListEdit-middle .studentListEdit-middle-footer {
+      width: 80px;
+      position: relative;
+      left: -5%; }
+
+/*# sourceMappingURL=studentListEdit.css.map */
