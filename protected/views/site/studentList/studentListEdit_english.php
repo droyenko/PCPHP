@@ -18,6 +18,23 @@ $dataArray = [
 ];
 */
 
+//test
+
+$dataArray = [
+    'groupName' => 'DP12',
+    'groupDirection' => 'PHP',
+    'studentList' => [
+        [
+            //student info
+            'id' => '1',
+            'name' => 'Svetlana',
+            'surname' => 'Dniprenko',
+            'photo_url' => '/../users_picture/Klakovych.png',
+            'english_lvl' => 'intermediate',
+        ],
+    ]
+];
+
 ?>
 
 <div class="modal fade" id="studentListEditModal">
@@ -42,25 +59,25 @@ $dataArray = [
                                     <th>Name</th>
                                     <th>Photo</th>
                                     <th>English level</th>
-                                    <th>Download photo/CV</th>
-                                    <th>Edit student info</th>
-                                    <th>Remove student</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                                 <?php foreach ($dataArray['studentList'] as $student) : ?>
-                                <tr>
-                                    <td class="align-left"><?= $student['name'] . ' ' . $student['surname']; ?></td>
-                                    <td class="align-center"><?= $student['photo_url']; ?></td>
-                                    <td class="align-left"><?= $student['english_lvl']; ?></td>
-                                    <td class="align-center">
-                                        <img class="btn btn-default" data-toggle="modal" data-target="#downloadPhotoCV" src="<?= Yii::app()->basePath . '/../css/img/'?>b_download.png">
-                                    </td>
-                                    <td class="align-center">
-                                        <img class="btn btn-default" data-toggle="modal" data-target="#editStudentInfo" src="<?= Yii::app()->basePath . '/../css/img/'?>b_cog.png">
-                                    </td>
-                                    <td class="align-center">
-                                        <img class="btn btn-default" data-toggle="modal" data-target="#deleteStudentInfo" src="<?= Yii::app()->basePath . '/../css/img/'?>b_trash.png">
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td class="align-left"><?= $student['name'] . ' ' . $student['surname']; ?></td>
+                                        <td class="align-center"><img class="studentFoto" src="<?= Yii::app()->basePath . $student['photo_url']; ?>"></td>
+                                        <td class="align-center"><?= $student['english_lvl']; ?></td>
+                                        <td class="align-center">
+                                            <img class="studentIcon" data-toggle="modal" data-target="#downloadPhotoCV" src="<?= Yii::app()->basePath; ?>/../img/b_download48.png">
+                                        </td>
+                                        <td class="align-center">
+                                            <img class="studentIcon" data-toggle="modal" data-target="#editStudentInfo" src="<?= Yii::app()->basePath; ?>/../img/b_cog48.png">
+                                        </td>
+                                        <td class="align-center">
+                                            <img class="studentIcon" data-toggle="modal" data-target="#deleteStudentInfo" src="<?= Yii::app()->basePath; ?>/../img/b_trash48.png">
+                                        </td>
+                                    </tr>
                                 <?php endforeach; ?>
                             </table>
                         </div>
@@ -75,7 +92,9 @@ $dataArray = [
                         </div>
                     </div>
 
-                    <img class="studentListEdit-side right" src="<?= Yii::app()->basePath . '/../css/img/'?>b_forward.png">
+                    <div class="studentListEdit-side right">
+                        <img class="studentIcon" src="<?= Yii::app()->basePath; ?>/../img/b_forward48.png">
+                    </div>
 
                 </div>
 

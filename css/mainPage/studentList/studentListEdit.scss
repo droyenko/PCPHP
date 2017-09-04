@@ -2,18 +2,29 @@
   display: flex;
   flex-flow: row nowrap;
 
+  .studentIcon {
+    width: 24px;
+    height: 24px;
+  }
+
   .studentListEdit-side {
     width: 10%;
-    background-color: #00b3ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .studentListEdit-middle {
     width: 80%;
     height: 100%;
-    background-color: #2e6ab1;
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-end;
+
+    * {
+      margin: 2px;
+      padding: 2px;
+    }
 
     .studentListEdit-middle-header, .studentListEdit-middle-footer {
       display: flex;
@@ -23,11 +34,28 @@
     }
 
     .studentListEdit-middle-studentList {
-      background-color: antiquewhite;
       width: 100%;
 
       table {
-        height: 300px;
+        width: 100%;
+
+        th {
+          text-align: center;
+          border: 3px solid grey;
+        }
+        td {
+          border: 1px solid grey;
+
+          .studentFoto {
+            height: 60px;
+          }
+        }
+        td.align-left {
+          text-align: left;
+        }
+        td.align-center {
+          text-align: center;
+        }
       }
     }
 
