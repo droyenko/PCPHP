@@ -66,7 +66,7 @@ $dataArray = [
                                 <?php foreach ($dataArray['studentList'] as $student) : ?>
                                     <tr>
                                         <td class="align-left"><?= $student['name'] . ' ' . $student['surname']; ?></td>
-                                        <td class="align-center"><img class="studentFoto" src="<?= Yii::app()->basePath . $student['photo_url']; ?>"></td>
+                                        <td class="align-center"><img class="studentPhoto" src="<?= Yii::app()->basePath . $student['photo_url']; ?>"></td>
                                         <td class="align-center"><?= $student['english_lvl']; ?></td>
                                         <td class="align-center">
                                             <img class="studentIcon" data-toggle="modal" data-target="#downloadPhotoCV" src="<?= Yii::app()->basePath; ?>/../img/b_download48.png">
