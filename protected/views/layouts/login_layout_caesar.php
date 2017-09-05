@@ -4,10 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="en">
 
+    <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/css/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/css/login.css">
     <link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/css/mainPage/main_page.css">
 
     <script src="<?= Yii::app()->request->baseUrl; ?>/js/login/login.js"></script>
+    <script src="<?= Yii::app()->request->baseUrl; ?>/js/login/login_init.js"></script>
 
     <title><?= CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -17,13 +19,6 @@
     <header class="header box">SoftServe</header>
     <?= $content; ?>
     <div class="clear"></div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var loginForm = document.querySelector('.login');
-            var login = new Login(loginForm);
-        });
-    </script>
 
 </body>
 </html>
