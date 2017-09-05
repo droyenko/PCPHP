@@ -12,7 +12,6 @@
  * @var integer $entry_score
  * @var integer $aproved_by
  */
-
 class Student extends CActiveRecord
 {
     public $id;
@@ -36,10 +35,10 @@ class Student extends CActiveRecord
         return 'students';
     }
 
-    public function relations ()
+    public function relations()
     {
         return [
-            'english' =>[self::BELONGS_TO, 'English', 'english_lvl'],
+            'english' => [self::BELONGS_TO, 'English', 'english_lvl'],
             'group' => [self::BELONGS_TO, 'Group', 'group_id'],
             'expert' => [self::BELONGS_TO, 'Expert', 'approved_by'],
         ];
