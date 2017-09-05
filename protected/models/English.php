@@ -13,5 +13,5 @@ class English extends CActiveRecord
     public function tableName()
     {
         return 'english_lvl';
-    }   
+    }
 }
