@@ -42,7 +42,7 @@
                 ]
             );
             echo CHtml::ajaxLink(
-                    $studentsImg,
+                $studentsImg,
                 ['StudentList/EnglishTable/group_id/2'],
                 [
                     'update' => '.group-area-content',
