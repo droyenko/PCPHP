@@ -16,7 +16,7 @@ class DemoDataCommand extends CConsoleCommand
 
     private function getDemoData($fileName)
     {
-        return $demoData = require_once Yii::app()->basePath . '/data/demo/' . $fileName;
+        return require_once Yii::app()->basePath . '/data/demo/' . $fileName;
     }
 
     private function fillOutTable($tableName)
