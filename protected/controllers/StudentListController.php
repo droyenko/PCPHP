@@ -4,13 +4,9 @@ class StudentListController extends CController
 {
     public function actionRenderEditModalScore($group_id)
     {
-        /** @var StudentComponent $component */
-        $component = Yii::app()->getComponent('Student');
-        $rawData = $component->getStudentList($group_id);
-
-
+        $rawStudentList = Yii::app()->student->getStudentList($group_id);
         $studentList = [];
-        foreach ($rawData as $student) {
+        foreach ($rawStudentList as $student) {
             $studentList[] = [
                 'id' => $student['id'],
                 'name' => $student['first_name'],
@@ -22,9 +18,11 @@ class StudentListController extends CController
             ];
         }
 
+        $group = Yii::app()->group->getGroup($group_id);
+
         $dataArray = [
-            'groupName' => Yii::app()->user->groupName,
-            'groupDirection' => Yii::app()->user->groupDirection,
+            'groupName' => $group['groupName'],
+            'groupDirection' => $group['groupDirection'],
             'studentList' => $studentList
             ];
         $this->renderPartial('studentScore', $dataArray);
