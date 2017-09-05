@@ -4,14 +4,14 @@ class DemoDataCommand extends CConsoleCommand
 {
     public function actionFillOutAllTables()
     {
-        $this->actionFillOutTableLocations('locations');
-        $this->actionFillOutTableUsers('users');
-        $this->actionFillOutTableDirections('directions');
-        $this->actionFillOutTableGroups('groups');
-        $this->actionFillOutTableUserGroups('user_groups');
-        $this->actionFillOutTableUserRoles('user_roles');
-        $this->actionFillOutTableExperts('experts');
-        $this->actionFillOutTableStudents('students');
+        $this->actionFillOutTableLocations();
+        $this->actionFillOutTableUsers();
+        $this->actionFillOutTableDirections();
+        $this->actionFillOutTableGroups();
+        $this->actionFillOutTableUserGroups();
+        $this->actionFillOutTableUserRoles();
+        $this->actionFillOutTableExperts();
+        $this->actionFillOutTableStudents();
     }
 
     private function getDemoData($fileName)
@@ -29,43 +29,43 @@ class DemoDataCommand extends CConsoleCommand
         }
     }
 
-    public function actionFillOutTableLocations($tableName)
+    public function actionFillOutTableLocations()
     {
-        $this->fillOutTable($tableName);
+        $this->fillOutTable('locations');
     }
 
-    public function actionFillOutTableUsers($tableName)
+    public function actionFillOutTableUsers()
     {
-        $this->fillOutTable($tableName);
+        $this->fillOutTable('users');
     }
 
-    public function actionFillOutTableDirections($tableName)
+    public function actionFillOutTableDirections()
     {
-        $this->fillOutTable($tableName);
+        $this->fillOutTable('directions');
     }
 
-    public function actionFillOutTableGroups($tableName)
+    public function actionFillOutTableGroups()
     {
-        $this->fillOutTable($tableName);
+        $this->fillOutTable('groups');
     }
 
-    public function actionFillOutTableUserGroups($tableName)
+    public function actionFillOutTableUserGroups()
     {
-        $this->fillOutTable($tableName);
+        $this->fillOutTable('user_groups');
     }
 
-    public function actionFillOutTableUserRoles($tableName)
+    public function actionFillOutTableUserRoles()
     {
-        $this->fillOutTable($tableName);
+        $this->fillOutTable('user_roles');
     }
 
-    public function actionFillOutTableExperts($tableName)
+    public function actionFillOutTableExperts()
     {
-        $this->fillOutTable($tableName);
+        $this->fillOutTable('experts');
     }
 
-    public function actionFillOutTableStudents($tableName)
+    public function actionFillOutTableStudents()
     {
-        $this->fillOutTable($tableName);
+        $this->fillOutTable('students');
     }
 }
