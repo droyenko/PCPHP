@@ -18,10 +18,12 @@
         <div class="gear">
             <?php if (Yii::app()->user->type === 'itacademy') : ?>
                 <a href="#" data-toggle="modal" data-target="#edit-group-modal">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/gear.png" class="gear-img" alt="gear icon">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/gear.png" class="gear-img"
+                         alt="gear icon">
                 </a>
                 <a href="#" class="delete-group">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/trash.jpg" class="trash-img" alt="trash bin icon">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/trash.jpg" class="trash-img"
+                         alt="trash bin icon">
                 </a>
             <?php endif; ?>
         </div>
@@ -32,15 +34,20 @@
             </a>
 
             <?php
-            $studentsImg = CHtml::image(Yii::app()->request->baseUrl . "/css/img/students.png", 'students.png',
-                array(
+            $studentsImg = CHtml::image(
+                Yii::app()->request->baseUrl . "/css/img/students.png",
+                'students.png',
+                [
                     'class' => 'tab-icons',
-                ));
-            echo CHtml::ajaxLink($studentsImg,
-                array('StudentList/EnglishTable/group_id/2'),
-                array(
+                ]
+            );
+            echo CHtml::ajaxLink(
+                    $studentsImg,
+                ['StudentList/EnglishTable/group_id/2'],
+                [
                     'update' => '.group-area-content',
-                ));
+                ]
+            );
             ?>
 
             <a href="#">
@@ -53,7 +60,7 @@
             </a>
         </div>
         <div class="group-area-content">
-        <?php require Yii::app()->basePath . '/views/site/groupInfo.php'; ?>
+            <?php require Yii::app()->basePath . '/views/site/groupInfo.php'; ?>
         </div>
     </main>
 
