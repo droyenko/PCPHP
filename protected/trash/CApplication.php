@@ -9,9 +9,4 @@
  */
 class CApplication
 {
-    public $student;
-    public $group;
-    public $location;
-    public $teacher;
-    public $direction;
 }
