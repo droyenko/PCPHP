@@ -58,7 +58,7 @@ class Login {
             this.showError();
             return false;
         } else {
-            if (!this.password.value.match(/^[a-zA-Z0-9!@#$%^&*`~()_+-|\"';:/?.>,<]+$/g)) {
+            if (!this.password.value.match(/^[a-zA-Z0-9!@#$%\^&\*`~\(\)_\+\-|\"';:\/\?\.>,<]+$/g)) {
                 this.showError();
                 return false;
             } else {
@@ -70,6 +70,7 @@ class Login {
     validateForm() {
         let loginValid = this.validateLogin(),
             passwordValid = this.validatePassword();
+
         if (loginValid && passwordValid) {
             this.loginForm.submit();
         }
