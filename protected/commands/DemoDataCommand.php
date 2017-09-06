@@ -14,15 +14,18 @@ class DemoDataCommand extends CConsoleCommand
         $this->actionFillOutTableStudents();
     }
 
-    private function getDemoData($fileName)
+    private function getDemoData($tableName)
     {
-        return require_once Yii::app()->basePath . '/data/demo/' . $fileName;
+        $filePath = Yii::app()->basePath . "/data/demo/{$tableName}.php";
+        if (!file_exists($filePath)) {
+            throw new RuntimeException("File {$filePath} does not exist!");
+        }
+        return require_once $filePath;
     }
 
     private function fillOutTable($tableName)
     {
-        $fileName = $tableName . '.php';
-        $demoData = $this->getDemoData($fileName);
+        $demoData = $this->getDemoData($tableName);
         $command = Yii::app()->db->createCommand();
         foreach ($demoData as $columnsArr) {
             $command->insert($tableName, $columnsArr);
