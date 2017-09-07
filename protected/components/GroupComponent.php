@@ -216,4 +216,13 @@ class GroupComponent extends CApplicationComponent
             }
         }
     }
+
+    public function cacheSelectedGroup($selectedgroup)
+    {
+        $selectedGroup = explode(',', $selectedgroup);
+        $cache = Yii::app()->cache;
+        $cache['groupId'] = $selectedGroup[0];
+        $cache['groupName'] = $selectedGroup[1];
+        $cache['groupDirection'] = $selectedGroup[2];
+    }
 }
