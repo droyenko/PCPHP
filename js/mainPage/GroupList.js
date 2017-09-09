@@ -6,6 +6,7 @@ class GroupList {
         this.urlGetGroupList = urlArray[0];
         this.urlShowGroup = urlArray[1];
         this.urlShowMyGroupList = urlArray[2];
+        this.urlCacheSelectedGroup = urlArray[3];
         this.groupInfoElement = groupInfoElement;
         this.groupList = [];
         this.myGroupList = [];
@@ -100,8 +101,11 @@ class GroupList {
                         groupDirectionId = groupListArr[i].direction_id,
                         groupLocationId = groupListArr[i].group_location_id,
                         groupFinishDate = groupListArr[i].finish_date,
+                        groupCacheInfo = [groupId, groupName, groupDirection],
                         groupInfo = [groupId, groupName, groupLocation, groupDirection, groupStartDate, groupBudget, groupDirectionId, groupLocationId, groupFinishDate];
                     this.groupInfoElement.showGroupInfo(groupInfo);
+
+                    Frame.ajaxRequest('GET', this.urlCacheSelectedGroup + '/selectedgroup/' + groupCacheInfo);
                 }
             });
         }

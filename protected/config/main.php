@@ -35,6 +35,7 @@ return [
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>/<locations:' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>/<selectedgroup:' => '<controller>/<action>',
             ],
         ],
         'user' => [
@@ -63,6 +64,9 @@ return [
                 ),
                 */
             ],
+        ],
+        'cache' => [
+            'class' => 'system.caching.CDbCache'
         ],
         'Group' => ['class' => 'GroupComponent'],
         'Location' => ['class' => 'LocationComponent'],
