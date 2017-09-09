@@ -10,5 +10,6 @@ return [
         'incoming_test' => '600',
         'entry_score' => '4',
         'approved_by' => '1',
+        'cv_url' => '/students/cv/TatyanaShevchenko.doc'
     ],
 ];
