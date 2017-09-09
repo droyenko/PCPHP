@@ -50,7 +50,9 @@
             groupListMenu = new GroupList([
                     "<?= Yii::app()->createUrl('GroupList/GetGroupList'); ?>",
                     "<?= Yii::app()->createUrl('GroupList/ShowGroup'); ?>",
-                    "<?= Yii::app()->createUrl('GroupList/GetMyGroupList'); ?>"],
+                    "<?= Yii::app()->createUrl('GroupList/GetMyGroupList'); ?>",
+                    "<?= Yii::app()->createUrl('GroupList/CacheSelectedGroup'); ?>"
+                ],
                 groupInfoElement,
                 <?= Yii::app()->user->location; ?>
             ),
