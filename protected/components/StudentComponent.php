@@ -47,14 +47,14 @@ class StudentComponent extends CApplicationComponent
 
 
         if ($data['cv_url']) {
-            $student->cv_url = CUploadedFile::getInstance($student,'cv_url');
-            $path = Yii::app()->request->baseUrl . '/users_cv/'.$student->cv_url->getName();
+            $student->cv_url = CUploadedFile::getInstance($student, 'cv_url');
+            $path = Yii::app()->request->baseUrl . '/users_cv/' . $student->cv_url->getName();
             $student->cv_url->saveAs($path);
         }
 
         if ($data['photo_url']) {
-            $student->photo_url = CUploadedFile::getInstance($student,'photo_url');
-            $path = Yii::app()->request->baseUrl . '/users_picture/'.$student->photo_url->getName();
+            $student->photo_url = CUploadedFile::getInstance($student, 'photo_url');
+            $path = Yii::app()->request->baseUrl . '/users_picture/' . $student->photo_url->getName();
             $student->photo_url->saveAs($path);
         }
 

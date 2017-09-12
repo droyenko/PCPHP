@@ -8,7 +8,8 @@
             ]
         );
 
-        echo CHtml::link($gearImg,
+        echo CHtml::link(
+            $gearImg,
             ['#'],
             [
                 'data-toggle' => 'modal',
@@ -98,10 +99,12 @@
                 'class' => 'studentIcon',
             ]
         );
-        echo CHtml::ajaxLink($rightShifterImg,
+        echo CHtml::ajaxLink(
+            $rightShifterImg,
             ['/StudentList/ScoreTable/group_id/2'],
             ['update' => '.group-area'],
-            ['id' => 'send-link-' . uniqid()]);
+            ['id' => 'send-link-' . uniqid()]
+        );
         ?>
     </div>
 </div>

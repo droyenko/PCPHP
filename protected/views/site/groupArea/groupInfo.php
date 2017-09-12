@@ -9,18 +9,24 @@ if (empty($groupName)) {
 <div class="status box">Stage: in process</div>
 <div class="message box">Some message</div>
 <main class="group-area box">
-    <?php if ($groupId != ''): ?>
+    <?php if ($groupId != '') : ?>
         <div class="gear">
             <?php
-            if (Yii::app()->user->type === 'itacademy'):
-                $gearImg = CHtml::image(Yii::app()->request->baseUrl . "/css/img/gear.png", 'gear.png',
-                    array(
+            if (Yii::app()->user->type === 'itacademy') :
+                $gearImg = CHtml::image(
+                    Yii::app()->request->baseUrl . "/css/img/gear.png",
+                    'gear.png',
+                    [
                         'class' => 'gear-img',
-                    ));
-                $trashImg = CHtml::image(Yii::app()->request->baseUrl . "/css/img/trash.jpg", 'trash bin icon',
-                    array(
+                    ]
+                );
+                $trashImg = CHtml::image(
+                    Yii::app()->request->baseUrl . "/css/img/trash.jpg",
+                    'trash bin icon',
+                    [
                         'class' => 'trash-img',
-                    ));
+                    ]
+                );
 
                 echo CHtml::ajaxLink($gearImg,
                     ["GroupArea/Modal"],
@@ -31,9 +37,12 @@ if (empty($groupName)) {
                     ]
                 );
 
-                echo CHtml::link($trashImg, "/Group/Delete/{$groupId}", [
-                    'class' => 'delete-group',
-                ]);
+                echo CHtml::link($trashImg,
+                    "/Group/Delete/{$groupId}",
+                    [
+                        'class' => 'delete-group',
+                    ]
+                );
 
             endif; ?>
         </div>
@@ -45,10 +54,13 @@ if (empty($groupName)) {
 
             <?php
             $groupId = '2';
-            $studentsImg = CHtml::image(Yii::app()->request->baseUrl . "/css/img/students.png", 'students.png',
-                array(
+            $studentsImg = CHtml::image(
+                Yii::app()->request->baseUrl . "/css/img/students.png",
+                'students.png',
+                [
                     'class' => 'tab-icons',
-                ));
+                ]
+            );
             echo CHtml::ajaxLink(
                 $studentsImg,
                 ["StudentList/EnglishTable/groupid/{$groupId}"],

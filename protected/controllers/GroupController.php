@@ -53,6 +53,7 @@ class GroupController extends BaseController
 
     public function actionGetGroupInformation()
     {
+        $id = 23;
         $model = new Group();
         $group = $model->findByPk($id);
         $teachers = $group->getRelated('teachers');
