@@ -41,10 +41,6 @@ class StudentComponent extends CApplicationComponent
         $student->setAttribute('approved_by', $data['approved_by']);
         $student->setAttribute('cv_url', $data['cv_url']);
 
-        if (!$student->validate()) {
-            throw new CHttpException(400, 'Invalid data');
-        }
-
         $student->save();
     }
 
@@ -63,10 +59,6 @@ class StudentComponent extends CApplicationComponent
         $student->setAttribute('entry_score', $data['entry_score']);
         $student->setAttribute('approved_by', $data['approved_by']);
         $student->setAttribute('cv_url', $data['cv_url']);
-
-        if (!$student->validate()) {
-            throw new CHttpException(400, 'Invalid data');
-        }
 
         $student->update();
     }
