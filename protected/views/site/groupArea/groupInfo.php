@@ -3,7 +3,6 @@ if (empty($groupName)) {
     $groupName = "<br>";
 }
 ?>
-
 <div class="loc-name box"><?php echo $groupLocationName; ?></div>
 <div class="group-name box"><?php echo $groupName; ?></div>
 <div class="status box">Stage: in process</div>
@@ -27,7 +26,6 @@ if (empty($groupName)) {
                         'class' => 'trash-img',
                     ]
                 );
-
                 echo CHtml::ajaxLink(
                     $gearImg,
                     ["GroupArea/Modal"],
@@ -37,7 +35,6 @@ if (empty($groupName)) {
                         'data - target' => '#groupModal'
                     ]
                 );
-
                 echo CHtml::link(
                     $trashImg,
                     "/Group/Delete/{$groupId}",
@@ -45,7 +42,6 @@ if (empty($groupName)) {
                         'class' => 'delete-group',
                     ]
                 );
-
             endif; ?>
         </div>
         <div class="tabs">
@@ -53,7 +49,6 @@ if (empty($groupName)) {
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/information-checked.png"
                      class="tab-icons tabInfo" alt="info icon">
             </a>
-
             <?php
             $groupId = '2';
             $studentsImg = CHtml::image(
@@ -70,7 +65,6 @@ if (empty($groupName)) {
                 ['id' => 'send-link-students']
             );
             ?>
-
             <a href="#">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/schedule.png"
                      class="tab-icons tabSchedule" alt="schedule icon">

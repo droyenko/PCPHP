@@ -7,7 +7,6 @@
                 'class' => 'gear-img',
             ]
         );
-
         echo CHtml::link(
             $gearImg,
             ['#'],
@@ -19,7 +18,6 @@
                 'onclick' => Yii::app()->createUrl('/StudentList/EditEnglish/group_id/2'),
             ]
         );
-
     endif; ?>
 </div>
 <div class="tabs">
@@ -31,7 +29,6 @@
             'class' => 'tab-icons tabInfo',
         ]
     );
-
     echo CHtml::ajaxLink(
         $groupInfoImg,
         ['GroupArea/GroupInfo'],
@@ -39,7 +36,6 @@
         ['id' => 'send-link-groupinfo']
     );
     ?>
-
     <?php
     $studentsImg = CHtml::image(
         Yii::app()->request->baseUrl . "/css/img/students-checked.png",
@@ -48,10 +44,8 @@
             'class' => 'tab-icons',
         ]
     );
-
     echo CHtml::link($studentsImg, '#');
     ?>
-
     <a href="#">
         <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/schedule.png"
              class="tab-icons tabSchedule" alt="schedule icon">
