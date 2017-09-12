@@ -1,26 +1,35 @@
 <div class="gear">
-    <?php if (Yii::app()->user->type === 'itacademy'):
-        $gearImg = CHtml::image(Yii::app()->request->baseUrl . "/css/img/gear.png", 'gear.png',
+    <?php if (Yii::app()->user->type === 'itacademy') :
+        $gearImg = CHtml::image(
+            Yii::app()->request->baseUrl . "/css/img/gear.png",
+            'gear.png',
             [
                 'class' => 'gear-img',
-            ]);
+            ]
+        );
 
-        echo CHtml::link($gearImg, ['#'], [
-            'data-toggle' => 'modal',
-            'data-target' => '#studentListEditModal',
-        ],
+        echo CHtml::link($gearImg,
+            ['#'],
+            [
+                'data-toggle' => 'modal',
+                'data-target' => '#studentListEditModal'
+            ],
             [
                 'onclick' => Yii::app()->createUrl('/StudentList/EditEnglish/group_id/2'),
-            ]);
+            ]
+        );
 
     endif; ?>
 </div>
 <div class="tabs">
     <?php
-    $groupInfoImg = CHtml::image(Yii::app()->request->baseUrl . "/css/img/information.png", 'info icon',
-        array(
+    $groupInfoImg = CHtml::image(
+        Yii::app()->request->baseUrl . "/css/img/information.png",
+        'info icon',
+        [
             'class' => 'tab-icons tabInfo',
-        ));
+        ]
+    );
 
     echo CHtml::ajaxLink(
         $groupInfoImg,
@@ -31,10 +40,13 @@
     ?>
 
     <?php
-    $studentsImg = CHtml::image(Yii::app()->request->baseUrl . "/css/img/students-checked.png", 'students.png',
-        array(
+    $studentsImg = CHtml::image(
+        Yii::app()->request->baseUrl . "/css/img/students-checked.png",
+        'students.png',
+        [
             'class' => 'tab-icons',
-        ));
+        ]
+    );
 
     echo CHtml::link($studentsImg, '#');
     ?>
@@ -79,10 +91,13 @@
     </div>
     <div class="students-list-right-shifter">
         <?php
-        $rightShifterImg = CHtml::image(Yii::app()->request->baseUrl . "/css/img/b_forward48.png", 'forwardBtn.png',
+        $rightShifterImg = CHtml::image(
+            Yii::app()->request->baseUrl . "/css/img/b_forward48.png",
+            'forwardBtn.png',
             [
                 'class' => 'studentIcon',
-            ]);
+            ]
+        );
         echo CHtml::ajaxLink($rightShifterImg,
             ['/StudentList/ScoreTable/group_id/2'],
             ['update' => '.group-area'],
