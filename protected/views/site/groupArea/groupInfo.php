@@ -28,7 +28,8 @@ if (empty($groupName)) {
                     ]
                 );
 
-                echo CHtml::ajaxLink($gearImg,
+                echo CHtml::ajaxLink(
+                    $gearImg,
                     ["GroupArea/Modal"],
                     ['update' => '#groupModal'],
                     ['id' => 'send - link - ' . uniqid(),
@@ -37,7 +38,8 @@ if (empty($groupName)) {
                     ]
                 );
 
-                echo CHtml::link($trashImg,
+                echo CHtml::link(
+                    $trashImg,
                     "/Group/Delete/{$groupId}",
                     [
                         'class' => 'delete-group',

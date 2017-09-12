@@ -59,7 +59,6 @@ class StudentComponent extends CApplicationComponent
         }
 
         $student->save();
-
     }
 
     public function editStudent($data)
@@ -86,6 +85,6 @@ class StudentComponent extends CApplicationComponent
         $student_id = $data['id'];
         $model = new Student();
 
-        $model->findByPk($student_id)->delete();;
+        $model->findByPk($student_id)->delete();
     }
 }
