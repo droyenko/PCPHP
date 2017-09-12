@@ -1,68 +1,27 @@
 <div class="check-delete"></div>
 <div class="loc-container">
-    <header class="header box">SoftServe
+    <header class="header box">Caesar
         <img class="profile_picture"
              src="<?php echo Yii::app()->request->baseUrl; ?><?php echo Yii::app()->user->picture; ?>">
     </header>
     <div class="left-popup"></div>
     <div class="right-popup"></div>
-    <div class="loc-name box"></div>
-    <div class="group-name box"></div>
-    <div class="status box">Stage: in process</div>
-    <div class="message box">Some message</div>
     <aside class="local-groups box">
         <?php require Yii::app()->basePath . '/views/site/groupList.php'; ?>
     </aside>
-    <aside class="notif box"></aside>
-    <main class="group-area box">
-        <div class="gear">
-            <?php if (Yii::app()->user->type === 'itacademy') : ?>
-                <a href="#" data-toggle="modal" data-target="#edit-group-modal">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/gear.png" class="gear-img"
-                         alt="gear icon">
-                </a>
-                <a href="#" class="delete-group">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/trash.jpg" class="trash-img"
-                         alt="trash bin icon">
-                </a>
-            <?php endif; ?>
-        </div>
-        <div class="tabs">
-            <a href="#">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/information-checked.png"
-                     class="tab-icons tabInfo" alt="info icon">
-            </a>
-
-            <?php
-            $studentsImg = CHtml::image(
-                Yii::app()->request->baseUrl . "/css/img/students.png",
-                'students.png',
-                [
-                    'class' => 'tab-icons',
-                ]
-            );
-            echo CHtml::ajaxLink(
-                $studentsImg,
-                ['StudentList/EnglishTable/group_id/2'],
-                [
-                    'update' => '.group-area-content',
-                ]
-            );
-            ?>
-
-            <a href="#">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/schedule.png"
-                     class="tab-icons tabSchedule" alt="schedule icon">
-            </a>
-            <a href="#">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/envelope.png"
-                     class="tab-icons tabNotification" alt="envelope icon">
-            </a>
-        </div>
-        <div class="group-area-content">
-            <?php require Yii::app()->basePath . '/views/site/groupInfo.php'; ?>
-        </div>
-    </main>
+    <aside class="notif box">
+        <button class="btn btn-default" data-toggle="modal" data-target="#studentAddModalTest">Student Add Modal
+        </button>
+        <button class="btn btn-default openFeedbackModal" data-toggle="modal" data-target="#studentFeedbackModal">
+            Feedback Modal
+        </button>
+    </aside>
+    <div class="center-area">
+        <?php
+        Yii::app()->cache->flush();
+        $this->renderPartial('//site/groupArea/groupArea', ['tabViewer' => 'groupInfo']);
+        ?>
+    </div>
 
     <div class="profile_block">
         <img class="cogwheel_picture" src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/gear.png">
@@ -94,4 +53,8 @@
 <?php require Yii::app()->basePath . '/views/site/locations.php'; ?>
 <?php require Yii::app()->basePath . '/views/site/modal.php'; ?>
 <?php require Yii::app()->basePath . '/views/site/edit_group.php'; ?>
-
+<?php require Yii::app()->basePath . '/views/site/feedbackModal.php'; ?>
+<?php require Yii::app()->basePath . '/views/site/studentAdd.php'; ?>
+<?php require Yii::app()->basePath . '/views/site/testStudentAdd.php'; ?>
+<?php require Yii::app()->basePath . '/views/studentList/editEnglish.php'; ?>
+<?php require Yii::app()->basePath . '/views/studentList/editScore.php'; ?>

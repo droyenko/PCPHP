@@ -13,7 +13,7 @@ class GroupController extends BaseController
     {
         $component = Yii::app()->getComponent('Group');
         $component->deleteGroup($id);
-        $this->renderJson(["success" => true]);
+        $this->redirect(Yii::app()->request->baseUrl . '/site/main');
     }
 
     public function actionEdit()
@@ -53,8 +53,6 @@ class GroupController extends BaseController
 
     public function actionGetGroupInformation()
     {
-        //$id = file_get_contents('php://input');
-        $id = 23;
         $model = new Group();
         $group = $model->findByPk($id);
         $teachers = $group->getRelated('teachers');

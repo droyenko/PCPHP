@@ -4,18 +4,26 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="en">
 
-    <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/css/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/css/img/favicon.ico"
+          type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/group_modal.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainPage/main_page.css">
+    <link rel="stylesheet" type="text/css"
+          href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainPage/main_page.css">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainPage/profile.css">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/leftside.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainPage/locations.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainPage/studentModal.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainPage/groupList.css">
+    <link rel="stylesheet" type="text/css"
+          href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainPage/locations.css">
+    <link rel="stylesheet" type="text/css"
+          href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainPage/studentModal.css">
+    <link rel="stylesheet" type="text/css"
+          href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainPage/groupList.css">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/error.css">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/groupDelete.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainPage/studentList/studentListEdit.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css"
+          href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainPage/studentList/studentListEdit.css">
+    <link rel="stylesheet" type="text/css"
+          href="<?php echo Yii::app()->request->baseUrl; ?>/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/feedbackModal.css">
 
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/node_modules/jquery/dist/jquery.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -40,6 +48,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', locationsInit);
+
     function locationsInit() {
         let locationModal = document.querySelector('#locationModal'),
             locationsListModalUrlArray = [
@@ -49,7 +58,7 @@
             groupInfoElement = new GroupInfo(),
             groupListMenu = new GroupList([
                     "<?= Yii::app()->createUrl('GroupList/GetGroupList'); ?>",
-                    "<?= Yii::app()->createUrl('GroupList/ShowGroup'); ?>",
+                    "<?= Yii::app()->createUrl('GroupArea/GroupInfo'); ?>",
                     "<?= Yii::app()->createUrl('GroupList/GetMyGroupList'); ?>",
                     "<?= Yii::app()->createUrl('GroupList/CacheSelectedGroup'); ?>"
                 ],
@@ -69,7 +78,7 @@
                 ],
                 groupModalMenuElement),
             deleteGroup = new DeleteGroup([
-                "<?= Yii::app()->createUrl('Group/Delete'); ?>"]),
+                "<?= Yii::app()->createUrl("/Group/Delete"); ?>"]),
             editGroupModal = document.querySelector('#edit-group-modal .groups'),
             editGroup = new EditGroup([
                     "<?= Yii::app()->createUrl('Locations/GetAllLocations'); ?>",

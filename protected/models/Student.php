@@ -24,6 +24,9 @@ class Student extends CActiveRecord
     public $entry_score;
     public $approved_by;
     public $cv_url;
+    public $teacher_feedback_id;
+    public $expert_feedback_id;
+    public $interviewer_feedback_id;
 
     public static function model($className = __CLASS__)
     {
@@ -41,15 +44,19 @@ class Student extends CActiveRecord
             'english' => [self::BELONGS_TO, 'English', 'english_lvl'],
             'group' => [self::BELONGS_TO, 'Group', 'group_id'],
             'expert' => [self::BELONGS_TO, 'Expert', 'approved_by'],
+            'teacherFeedback' => [self::BELONGS_TO, 'TeacherFeedbackForm', 'teacher_feedback_id'],
+            'expertFeedback' => [self::BELONGS_TO, 'ExpertFeedbackForm', 'expert_feedback_id'],
+            'interviewerFeedback' => [self::BELONGS_TO, 'InterviewerFeedbackForm', 'interviewer_feedback_id'],
         ];
     }
 
     public function rules()
     {
         return [
-            ['first_name, last_name, photo_url, cv_url, english_lvl, group_id', 'incoming_test', 'entry_score', 'required'],
             ['first_name', 'length', 'min' => 2, 'max' => 20],
-            ['last_name', 'length', 'min' => 2, 'max' => 20]
+            ['last_name', 'length', 'min' => 2, 'max' => 20],
+            ['cv_url', 'file', 'types'=>'txt, doc, docx'],
+            ['photo_url', 'file', 'types'=>'jpg, png'],
         ];
     }
 }
